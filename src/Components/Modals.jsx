@@ -5,6 +5,7 @@ import { Modal } from "./Modal";
 export const Modals = () => {
   const [isOpenModal1, openModal1, closeModal1] = useModal(false);
   const [isOpenModal2, openModal2, closeModal2] = useModal(false);
+  const [isOpenPortal, openModalPortal, closeModalPortal] = useModal(false);
 
   return (
     <div>
@@ -27,7 +28,15 @@ export const Modals = () => {
         <img src="https://placeimg.com/400/400/nature" alt="Animals" />
       </Modal>
 
-      
+      <button onClick={openModalPortal}>Modal en Portal</button>
+      <Modal isOpen={isOpenPortal} closeModal={closeModalPortal}>
+        <h3>Modal en Portal</h3>
+        <p>
+          Este es el contenido de un modal que carga en otro nodo del DOM
+          diferente a donde carga neustra app de React, gracias a react Portal.
+        </p>
+        <img src="https://placeimg.com/400/400/tech" alt="Animals" />
+      </Modal>
     </div>
   );
 };
